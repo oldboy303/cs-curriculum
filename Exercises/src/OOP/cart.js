@@ -1,9 +1,5 @@
 var Item = require('./item');
 
-function itemDescription(cartItem) {
-  return `${cartItem.item.name} - $${cartItem.item.price.toFixed(1)}`;
-}
-
 class Cart {
 
   constructor() {
@@ -17,7 +13,7 @@ class Cart {
   }
 
   itemizedList() {
-    return this.items.map(itemDescription);
+    return this.items.map(i => `${i.item.name} - $${i.item.price.toFixed(1)}`);
   }
 
   itemQuantities() {
@@ -25,7 +21,8 @@ class Cart {
   }
 
   onSaleItems() {
-    return this.items.filter(i => i.item.onSale).map(itemDescription);
+    return this.items.filter(i => i.item.onSale)
+      .map(i => `${i.item.name} - $${i.item.price.toFixed(1)}`);
   }
 }
 
