@@ -140,8 +140,11 @@ describe("Singly Linked List", function() {
 
 
   describe("reverseRecursive", function(){
-    it("It should...", function(){
-
+    it("It should reverse the list", function() {
+      list.push(1).push(2).push(3).push(4).push(5);
+      expect(list.head.val).to.equal(1);
+      list.recursiveReverse();
+      expect(list.head.val).to.equal(5);
     });
   });
 

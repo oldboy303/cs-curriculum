@@ -213,4 +213,24 @@ SinglyLinkedList.prototype.reverse = function () {
 
 };
 
+SinglyLinkedList.prototype.recursiveReverse = function (node = this.head, prev = null) {
+
+  if (!node.next) {
+
+    this.head = this.tail;
+
+    this.tail = node;
+
+    return;
+
+  }
+
+  let next = node.next;
+
+  node.next = prev;
+  
+  this.recursiveReverse(next, node);
+
+};
+
 module.exports = SinglyLinkedList;
